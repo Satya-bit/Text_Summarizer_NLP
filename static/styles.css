@@ -1,0 +1,110 @@
+body {
+    background-color: rgb(34, 36, 36);
+    font-size: 200%;
+    color: white;
+    text-align: center;
+}
+
+.my-input {
+    width: 1000px;
+    height: 300px;
+    text-align: left;
+    vertical-align: top;
+    padding: 10px; /* Ensures text starts at the top-left */
+    resize: none; 
+    font-size: 65%;
+    font-weight: bold;
+}
+
+.my-input::placeholder {
+    text-align: left;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 1200px;
+   
+}
+
+.submit-button {
+    width: 130px;
+    height: 30px;
+    color: black; /* Black text */
+    font-weight: bold; /* Bold text */
+    background: rgb(206, 5, 206); /* Solid purple background */
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(102, 3, 102, 0.5); /* Adds a shadow effect */
+    margin-left: 10px; /* Adds space between buttons */
+}
+
+/* Hover Effect */
+.submit-button:hover {
+    background: rgb(120, 10, 120); /* Slightly lighter purple */
+    transform: scale(1.1); /* Slightly increases size */
+    box-shadow: 0px 6px 15px rgba(102, 3, 102, 0.7); /* Glow effect */
+}
+
+/* Click Effect */
+.submit-button:active {
+    transform: scale(0.95); /* Slightly shrinks when clicked */
+    box-shadow: 0px 2px 5px rgba(102, 3, 102, 0.3); /* Reduces glow */
+}
+
+.clear-button {
+    width: 130px;
+    height: 30px;
+    color: black; /* Black text */
+    font-weight: bold; /* Bold text */
+    background:rgb(206, 5, 206); /* Solid purple background */
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(102, 3, 102, 0.5); /* Adds a shadow effect */
+}
+
+/* Hover Effect */
+.clear-button:hover {
+    background: rgb(120, 10, 120); /* Slightly lighter purple */
+    transform: scale(1.1); /* Slightly increases size */
+    box-shadow: 0px 6px 15px rgba(102, 3, 102, 0.7); /* Glow effect */
+}
+
+/* Click Effect */
+.clear-button:active {
+    transform: scale(0.95); /* Slightly shrinks when clicked */
+    box-shadow: 0px 2px 5px rgba(102, 3, 102, 0.3); /* Reduces glow */
+}
+
+
+
+#summary-container {
+    display: flex;
+    align-items: center; /* Align text and output on the same line */
+    font-size: 30px;
+    margin-top: 10px; /* Adjust this value to shift it down a bit */
+    text-align: left;
+    width: 80%;
+    margin: auto;
+}
+
+#summary-container strong {
+    margin-right: 20px; /* Space between "Summary:" and the output */
+    white-space: nowrap; /* Prevents wrapping of "Summary:" */
+    margin-top: 50px;
+
+}
+
+#output-container {
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    font-size: 30px;
+    margin-top: 50px;
+}

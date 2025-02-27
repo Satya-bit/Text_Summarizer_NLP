@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    
+    <!-- Link External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Text Summarizer</h1>
+
+    <form action="/" method="POST">
+        <textarea name="text" class="my-input" placeholder="Enter or paste your text and press Summarize">{{ text }}</textarea>
+        
+        <!-- Button Container -->
+        <div class="button-container">
+            <input type="submit" class="clear-button" value="Clear" name="clear">
+            <input type="submit" class="submit-button" value="Summarize" name="submit">
+        </div>
+    </form>
+
+    {% if result %}
+    <div id="summary-container">
+        <strong>Summary:</strong> <span id="output-container"></span> <!-- Summary Output Here -->
+    </div>
+    {% endif %}
+
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <!-- Link External JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <script>
+        let summaryText = "{{ result|safe }}"; // Fetch the result from Flask
+        if (summaryText) {
+            startTypingEffect(summaryText);
+        }
+    </script>
+</body>
+</html>
