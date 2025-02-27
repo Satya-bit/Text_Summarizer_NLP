@@ -3,7 +3,7 @@ from src.Text_Summarizer_NLP.logging import logger
 from src.Text_Summarizer_NLP.pipeline.stage_1_data_ingestion_pipeline import DataIngestionTrainingPipeline # type: ignore
 from src.Text_Summarizer_NLP.pipeline.stage_2_data_transformation_pipeline import DataTransformationPipeline # type: ignore
 from src.Text_Summarizer_NLP.pipeline.stage_3_model_trainer_pipeline import ModelTrainerTrainingPipeline # type: ignore
-from Text_Summarizer_NLP.pipeline.stage_4_model_evaluation_pipeline import ModelEvaluationPipeline # type: ignore
+from src.Text_Summarizer_NLP.pipeline.stage_4_model_evaluation_pipeline import ModelEvaluationPipeline # type: ignore
 STAGE_NAME = "Data Ingestion stage"
 
 try:
