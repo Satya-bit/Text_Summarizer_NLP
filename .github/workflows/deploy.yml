@@ -27,4 +27,8 @@ jobs:
       run: |
         git add .
         git commit -m "Auto-update from GitHub Actions"
+<<<<<<< HEAD
         git push origin main
+=======
+        git push origin main
+>>>>>>> 1da3a0c90a96fd3a3e7292999eeb7302cc08e9a3
