@@ -1,34 +1,31 @@
-name: Deploy to Hugging Face Spaces
+name: Deploy to Hugging Face
 
 on:
   push:
     branches:
-      - main  # Runs when changes are pushed to the main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Login to Hugging Face
-      env:
-        HF_TOKEN: ${{ secrets.HF_TOKEN }}
-      run: |
-        git config --global user.email "satya.s@ahduni.edu.in"
-        git config --global user.name "Satya-bit"
-        git remote set-url origin https://huggingface.co/spaces/Satya-bit/textsummarizer
-        git fetch origin main
-        git branch --set-upstream-to=origin/main main
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
 
-    - name: Push updates to Hugging Face
-      run: |
-        git add .
-        git commit -m "Auto-update from GitHub Actions"
-<<<<<<< HEAD
-        git push origin main
-=======
-        git push origin main
->>>>>>> 1da3a0c90a96fd3a3e7292999eeb7302cc08e9a3
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Log in to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: huggingface-cli login --token $HF_TOKEN
+
+      - name: Deploy to Hugging Face
+        run: git push https://Satya-bit:$HF_TOKEN@huggingface.co/spaces/Satya-bit/textsummarizer main
