@@ -1,0 +1,30 @@
+name: Deploy to Hugging Face Spaces
+
+on:
+  push:
+    branches:
+      - main  # Runs when changes are pushed to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Login to Hugging Face
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: |
+        git config --global user.email "satya.s@ahduni.edu.in"
+        git config --global user.name "Satya-bit"
+        git remote set-url origin https://huggingface.co/spaces/Satya-bit/textsummarizer
+        git fetch origin main
+        git branch --set-upstream-to=origin/main main
+
+    - name: Push updates to Hugging Face
+      run: |
+        git add .
+        git commit -m "Auto-update from GitHub Actions"
+        git push origin main
