@@ -10,17 +10,18 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 # Copy the rest of the application code
 COPY . /app
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "5000"]
 
 # # Set environment variables for Flask
 # ENV FLASK_APP=app.py \
 #     FLASK_RUN_HOST=0.0.0.0 \
 #     FLASK_RUN_PORT=5000
 
-# Expose port 5000 for Flask
-EXPOSE 5000
+# # Expose port 5000 for Flask
+# EXPOSE 5000
 
-# Run the application
-CMD ["python", "app.py"]
+# # Run the application
+# CMD ["python", "app.py"]
 
 
 # FROM python:3.12
