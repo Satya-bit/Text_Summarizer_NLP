@@ -27,7 +27,7 @@ jobs:
         run: |
           git config --global user.email "your-email@example.com"
           git config --global user.name "Satya-bit"
-          git remote set-url origin https://Satya-bit:$HF_TOKEN@huggingface.co/spaces/Satya-bit/textsummarizer
+          git remote set-url origin https://Satya-bit:$HF_TOKEN@huggingface.co/spaces/Satya-bit/textsummarizer2
 
       - name: Push to Hugging Face
         env:
