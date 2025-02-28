@@ -1,0 +1,20 @@
+# Ignore the artifacts folder
+artifacts/
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore version control directories
+.git/
+.gitignore
+
+# Ignore Dockerfile and other potential sensitive files
+Dockerfile
+docker-compose.yml
