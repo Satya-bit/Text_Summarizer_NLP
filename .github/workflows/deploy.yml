@@ -25,7 +25,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git config --global user.email "satyashah2610@gmail.com"
+          git config --global user.email "satya.s@ahduni.edu.in"
           git config --global user.name "Satya-bit"
           git remote set-url origin https://Satya-bit:$HF_TOKEN@huggingface.co/spaces/Satya-bit/textsummarizer2
 
