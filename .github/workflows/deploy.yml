@@ -1,31 +1,20 @@
-name: Deploy to Hugging Face
-
+name: Sync to Hugging Face hub
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  sync-to-hub:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
         with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Log in to Hugging Face
+          fetch-depth: 0
+          lfs: true
+      - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: huggingface-cli login --token $HF_TOKEN
-
-      - name: Deploy to Hugging Face
         run: git push https://Satya-bit:$HF_TOKEN@huggingface.co/spaces/Satya-bit/textsummarizer main
